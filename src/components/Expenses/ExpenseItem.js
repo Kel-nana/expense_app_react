@@ -8,7 +8,6 @@ const ExpenseItem = (props) => {
   console.log("expenseitem evaluated ");
   const clickHandler = () => {
     setTitle("Updated!");
-    console.log("individual expenseitem evaluated");
   };
   return (
     <Card className="expense-item">

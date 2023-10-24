@@ -4,33 +4,39 @@ import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
 
+    // Define a state variable to store user input for title, amount, and date
   const [userInput, setUserInput] = useState({
     enteredTitle: "",
     enteredAmount: "",
     enteredDate: "",
   });
 
+   // Event handler for changing the title input field
   const titleChangeHandler = (event) => {
     setUserInput((prevState) => {
       return { ...prevState, enteredTitle: event.target.value };
     });
   };
 
+   // Event handler for changing the amount input field
   const amountChangeHandler = (event) => {
     setUserInput((prevState) => {
       return { ...prevState, enteredAmount: event.target.value };
     });
   };
 
+   // Event handler for changing the date input field
   const dateChangeHandler = (event) => {
     setUserInput((prevState) => {
       return { ...prevState, enteredDate: event.target.value };
     });
   };
-
+  
+  // Event handler for submitting the form
   const submitHandler = (event) => {
     event.preventDefault();  
 
+    // Create an object to store the user's input data
     const expenseData = {
       ...userInput,
     };

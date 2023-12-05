@@ -21,6 +21,6 @@ const ExpenseItem = (props) => {
       <button  onClick={clickHandler}>change</button>
     </Card>
   );
-};
+}; 
 
 export default ExpenseItem;

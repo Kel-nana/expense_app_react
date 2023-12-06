@@ -50,6 +50,7 @@ console.log(openForm, 'open form')
     // console.log(expenseData);
     props.onSaveExpenseData(expenseData); 
     // clear input field
+    
     setUserInput({
       title: "",
       amount: "",

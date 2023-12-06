@@ -7,14 +7,14 @@ const ExpenseList = (props) => {
       return  <h2 className="expenses-list__fallback">No expenses found</h2>
     }
     return (
-<div className="expenses-List">
+<ul className="expenses-List">
     {props.items.map(item => <ExpenseItem
             key={item.id}
             title={item.title}
             amount={item.amount}
             date={item.date}
           />)}
-</div>
+</ul>
     )
 }
 export default ExpenseList;

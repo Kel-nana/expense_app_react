@@ -34,8 +34,6 @@ const[ expenses, setExpenses ] = useState(dummy_expenses);
     setExpenses((prevExpenses )=> {
        return [expense, ...prevExpenses];
     })
-     
-    // expenses = [...expenses, expense];
     console.log(expense, 'App.js data')
 };
 

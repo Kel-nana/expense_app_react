@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
     // Define a state object to store user input for title, amount, and date
   const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
+    title: "",
+    amount: "",
+    date: "",
   });
 
    // Event handler for changing the title input field Depending on previous statev 
   const titleChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, enteredTitle: event.target.value };
+      return { ...prevState, title: event.target.value };
     });   
   };
 
    // Event handler for changing the amount input field
   const amountChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, enteredAmount: event.target.value };
+      return { ...prevState, amount: event.target.value };
     }); 
   };
 
    // Event handler for changing the date input field
   const dateChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, enteredDate: event.target.value };
+      return { ...prevState, date: event.target.value };
     });
   };
   
@@ -36,15 +36,17 @@ const ExpenseForm = () => {
     event.preventDefault();  
 
     // Create an object to sto re the user's input data
-    const expenseData = {
+    const expenseData = { 
       ...userInput,
     };
 
-    console.log(expenseData);
+    // console.log(expenseData);
+    props.onSaveExpenseData(expenseData); 
+    // clear input field
     setUserInput({
-      enteredTitle: "",
-      enteredAmount: "",
-      enteredDate: "",
+      title: "",
+      amount: "",
+      date: "",
     })
   };
 
@@ -53,7 +55,11 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" value={ userInput.enteredTitle } onChange={titleChangeHandler} />
+          <input 
+          type="text" 
+          value={ userInput.enteredTitle } 
+          onChange={titleChangeHandler} 
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -84,3 +90,4 @@ const ExpenseForm = () => {
 };
 
 export default ExpenseForm;
+ 

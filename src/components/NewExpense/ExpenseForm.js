@@ -35,7 +35,7 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();  
 
-    // Create an object to sto re the user's input data
+    // Create an object to store the user's input data
     const expenseData = { 
       ...userInput,
     };

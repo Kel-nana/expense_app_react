@@ -2,21 +2,28 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-
+const [openForm, setOpenForm] =useState(false)
     // Define a state object to store user input for title, amount, and date
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
     date: "",
   });
+console.log(openForm, 'open form')
+  const addNewExpenseHandler = ()=> {
+    setOpenForm(true);
+  }
 
+  const closeExpenseHandler = ()=> {
+    setOpenForm(false);
+  }
    // Event handler for changing the title input field Depending on previous statev 
-  const titleChangeHandler = (event) => {
-    setUserInput((prevState) => {
-      return { ...prevState, title: event.target.value };
-    });   
-  };
-
+   const titleChangeHandler = (event) => {
+     setUserInput((prevState) => {
+       return { ...prevState, title: event.target.value };
+      });   
+    };
+    
    // Event handler for changing the amount input field
   const amountChangeHandler = (event) => {
     setUserInput((prevState) => {
@@ -50,9 +57,12 @@ const ExpenseForm = (props) => {
     })
   };
 
-  return (
-    <form onSubmit={submitHandler}>
+  let close = "{---close---}"
+  
+  if(openForm===true){
+ return <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
+        <div className="close__btn" onClick={closeExpenseHandler}>{close}</div>
         <div className="new-expense__control">
           <label>Title</label>
           <input 
@@ -82,10 +92,18 @@ const ExpenseForm = (props) => {
           />
         </div>
       </div>
-      <div className="new-expense__actions">
+      <div className="new-expense__actions center_btn">
         <button type="submit">Add Expense</button>
       </div>
     </form>
+  }
+  
+  return (
+
+    <div>
+    <button type="button" onClick={addNewExpenseHandler}>Add New Expense</button>
+  </div>
+
   );
 };
 

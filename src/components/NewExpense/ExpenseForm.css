@@ -24,3 +24,18 @@
   .new-expense__actions {
     text-align: right;
   }
+
+  .close__btn {
+    position: absolute;
+    text-align: justify;
+    margin-left: 82%;
+    margin-top: -0.7%;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+    font-weight: 900;
+    background-color: rgba(129, 118, 126, 0.61);
+    border-radius: 8px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 0.5vh;
+  }

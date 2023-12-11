@@ -7,10 +7,12 @@ const NewExpense = (props) => {
 
         // Convert the date string to a JavaScript Date object
     const date = new Date(enteredExpenseData.date);
-
+    const amount = parseInt(enteredExpenseData.amount)
+    console.log(amount, 'amount');
       //pass in expenseData
  const expenseData = {
-    ...enteredExpenseData, 
+    ...enteredExpenseData,
+    amount: amount, 
     date: date,
     id:Math.random().toString()
 }

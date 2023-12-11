@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
+  // Define a state object to open nd cloe the form
 const [openForm, setOpenForm] =useState(false)
     // Define a state object to store user input for title, amount, and date
+ 
+
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
     date: "",
   });
+
 console.log(openForm, 'open form')
   const addNewExpenseHandler = ()=> {
     setOpenForm(true);
@@ -70,6 +74,9 @@ console.log(openForm, 'open form')
           type="text" 
           value={ userInput.title } 
           onChange={titleChangeHandler} 
+          className={
+            userInput.title ? "green" : "blank"
+          }
           />
         </div>
         <div className="new-expense__control">
@@ -80,6 +87,9 @@ console.log(openForm, 'open form')
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
+            className={
+              userInput.amount ? "green" : "blank"
+            }
           />
         </div>
         <div className="new-expense__control">
@@ -90,6 +100,9 @@ console.log(openForm, 'open form')
             min="2019-01-01"
             max="2025-12-31"
             onChange={dateChangeHandler}
+            className={
+              userInput.date ? "green" : "blank"
+            }
           />
         </div>
       </div>
